@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste d'items</title>
+</head>
+<body>
+<p>Hello! Voici la liste des items</p>
+<form method="POST" action="/items">
+    <div>
+        <label for="name">Nom de l'item</label>
+        <input type="text" name="name" id="name"/>
+    </div>
+    <div>
+        <label for="quantity">Quantité souhaitée</label>
+        <input type="text" name="quantity" id="quantity"/>
+    </div>
+    <input type="submit" value="Ajouter un item">
+</form>
+
+<div>
+    <ul th:each="item : ${items}">
+        <li th:text="${item.quantity + '*' + item.name}"></li>
+    </ul>
+</div>
+</body>
+</html>
